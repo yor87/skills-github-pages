@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nosotros</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="../css/nosotros.css" />
+    <link rel="icon" href="../images/logo.ico" />
+    <!-- <link rel="stylesheet" href="../css/styles.css"> -->
+    <style>
+      body {
+        font-family: "Times New Roman";
+        background-image: url("ns.jpg");
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Contenedor para el header -->
+    <div id="header"></div>
+
+    <div class=" ">
+      <h1>Nosotros</h1>
+    </div>
+
+    <div class="container my-5">
+      <div class="content-section">
+        <h2>Nuestra Misión</h2>
+        <p>
+          La misión como centro especializado está orientada a brindar bienestar
+          y salud para la mayor felicidad posible, de los habitantes del
+          municipio Urdaneta, garantizando resultados en los diversos
+          procedimientos médicos y odontológicos.
+        </p>
+      </div>
+
+      <div class="content-section">
+        <h2>Nuestra Visión</h2>
+        <p>
+          Se pretende mejorar la calidad de vida de la población mediante la
+          atención primaria y especializada, en diversas áreas, convirtiéndose
+          en un organismo de salud a la vanguardia de los nuevos tiempos.
+        </p>
+      </div>
+
+      <div class="content-section">
+        <h2>Servicios</h2>
+        <ul class="list-unstyled">
+          <li>Odontología general</li>
+          <li>Pediatría</li>
+          <li>Epidemiología</li>
+          <li>Laboratorio</li>
+          <li>Ginecología</li>
+        </ul>
+      </div>
+
+      <div class="content-section">
+        <h2>Ubicación</h2>
+        <p>
+          Estamos ubicados en:
+          <span id="ubicacion"
+            >el sector Aparay y Pinto Salinas de Cúa, subiendo por el hospital
+            general del Municipio Urdaneta.</span
+          >
+        </p>
+        <button class="btn btn-info" onclick="mostrarUbicacion()">
+          Mostrar Ubicación en Mapa
+        </button>
+        <div id="mapa" style="display: none">
+          <p>
+            <a href="https://www.google.co.ve/maps/place/Centro+de+Especialidades+Medicas+Odontologicas+(CEMO)/@10.1645678,-66.8936437,17z/data=!4m14!1m7!3m6!1s0x8c2ae979f220935b:0x6a6aed3a8f9fbe96!2sCentro+de+Especialidades+Medicas+Odontologicas+(CEMO)!8m2!3d10.1645784!4d-66.8923992!16s%2Fg%2F11g8kvflsl!3m5!1s0x8c2ae979f220935b:0x6a6aed3a8f9fbe96!8m2!3d10.1645784!4d-66.8923992!16s%2Fg%2F11g8kvflsl?entry=ttu&g_ep=EgoyMDI1MDIxMC4wIKXMDSoJLDEwMjExNDU1SAFQAw%3D%3D" target="_blank"
+              >Ver en Google Maps</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Botón de FAQ -->
+    <button
+      class="btn btn-info faq-button"
+      data-toggle="modal"
+      data-target="#faqModal"
+    >
+      FAQ
+    </button>
+
+    <!-- Botón de Políticas y Términos -->
+    <button
+      class="btn btn-warning terms-button"
+      data-toggle="modal"
+      data-target="#termsModal"
+    >
+    POL&Iacute;TICAS Y T&Eacute;RMINOS
+    </button>
+    <!-- Modal de FAQ -->
+    <div
+      class="modal fade"
+      id="faqModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="faqModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="faqModalLabel">
+              Preguntas Frecuentes (FAQ)
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="accordion" id="faqAccordion">
+              <div class="card">
+                <div class="card-header" id="headingOne">
+                  <h5 class="mb-0">
+                    <button
+                      class="btn btn-link"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#collapseOne"
+                      aria-expanded="true"
+                      aria-controls="collapseOne"
+                    >
+                      ¿Qué servicios ofrece CEMO?
+                    </button>
+                  </h5>
+                </div>
+                <div
+                  id="collapseOne"
+                  class="collapse show"
+                  aria-labelledby="headingOne"
+                  data-parent="#faqAccordion"
+                >
+                  <div class="card-body">
+                    CEMO ofrece una variedad de servicios médicos, incluyendo
+                    odontología, ginecología, pediatría, medicina general, y
+                    más.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingTwo">
+                  <h5 class="mb-0">
+                    <button
+                      class="btn btn-link collapsed"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#collapseTwo"
+                      aria-expanded="false"
+                      aria-controls="collapseTwo"
+                    >
+                      ¿Cómo puedo agendar una cita?
+                    </button>
+                  </h5>
+                </div>
+                <div
+                  id="collapseTwo"
+                  class="collapse"
+                  aria-labelledby="headingTwo"
+                  data-parent="#faqAccordion"
+                >
+                  <div class="card-body">
+                    Puedes agendar una cita a través de nuestro formulario en
+                    línea o llamando a nuestras oficinas.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingThree">
+                  <h5 class="mb-0">
+                    <button
+                      class="btn btn-link collapsed"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#collapseThree"
+                      aria-expanded="false"
+                      aria-controls="collapseThree"
+                    >
+                      ¿Qué debo llevar a mi cita?
+                    </button>
+                  </h5>
+                </div>
+                <div
+                  id="collapseThree"
+                  class="collapse"
+                  aria-labelledby="headingThree"
+                  data-parent="#faqAccordion"
+                >
+                  <div class="card-body">
+                    Te recomendamos llevar tu cédula de identificación,
+                    cualquier documentación médica relevante y tus datos de
+                    contacto.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingFour">
+                  <h5 class="mb-0">
+                    <button
+                      class="btn btn-link collapsed"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#collapseFour"
+                      aria-expanded="false"
+                      aria-controls="collapseFour"
+                    >
+                      ¿Cuál es el horario de atención?
+                    </button>
+                  </h5>
+                </div>
+                <div
+                  id="collapseFour"
+                  class="collapse"
+                  aria-labelledby="headingFour"
+                  data-parent="#faqAccordion"
+                >
+                  <div class="card-body">
+                    Nuestro horario de atención es de lunes a viernes, de 8:00
+                    AM a 5:00 PM.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingFive">
+                  <h5 class="mb-0">
+                    <button
+                      class="btn btn-link collapsed"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#collapseFive"
+                      aria-expanded="false"
+                      aria-controls="collapseFive"
+                    >
+                      ¿Aceptan seguros médicos?
+                    </button>
+                  </h5>
+                </div>
+                <div
+                  id="collapseFive"
+                  class="collapse"
+                  aria-labelledby="headingFive"
+                  data-parent="#faqAccordion"
+                >
+                  <div class="card-body">
+                    Sí, aceptamos varios seguros médicos. Te recomendamos
+                    consultar con nuestras oficinas para más detalles.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Cerrar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal de Políticas y Términos -->
+    <div
+      class="modal fade"
+      id="termsModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="termsModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="termsModalLabel">
+              Políticas de Privacidad, Condiciones y Términos
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h2>Políticas de Privacidad</h2>
+            <p>
+              En CEMO, valoramos tu privacidad y nos comprometemos a proteger
+              tus datos personales. Esta política explica cómo recopilamos,
+              usamos y protegemos tu información.
+            </p>
+            <h4>1. Información que Recopilamos</h4>
+            <ul>
+              <li>
+                Información personal: nombre, dirección, correo electrónico,
+                número de teléfono.
+              </li>
+              <li>
+                Información de salud: datos relacionados con tu historial médico
+                y tratamientos.
+              </li>
+              <li>
+                Información de uso: datos sobre cómo utilizas nuestro sitio web.
+              </li>
+            </ul>
+            <h4>2. Uso de la Información</h4>
+            <p>Usamos tu información para:</p>
+            <ul>
+              <li>Proporcionar servicios médicos y gestionar citas.</li>
+              <li>Mejorar nuestro sitio web y servicios.</li>
+              <li>Enviar comunicaciones relevantes y actualizaciones.</li>
+            </ul>
+            <h4>3. Protección de Datos</h4>
+            <p>
+              Implementamos medidas de seguridad adecuadas para proteger tu
+              información personal contra el acceso no autorizado, la
+              alteración, divulgación o destrucción.
+            </p>
+            <h4>4. Cambios en la Política</h4>
+            <p>
+              Nos reservamos el derecho de actualizar esta política de
+              privacidad. Te notificaremos sobre cambios significativos a través
+              de nuestro sitio web.
+            </p>
+            <h4>5. Contacto</h4>
+            <p>
+              Si tienes preguntas sobre esta política, contáctanos a través de
+              nuestro formulario de contacto.
+            </p>
+
+            <hr />
+
+            <h2>Condiciones de Uso</h2>
+            <p>
+              Al utilizar nuestro sitio web, aceptas cumplir con estas
+              condiciones de uso. Si no estás de acuerdo, por favor no utilices
+              nuestro sitio.
+            </p>
+            <h4>1. Uso del Sitio</h4>
+            <p>
+              Este sitio web está destinado a uso personal y no comercial. No
+              puedes utilizarlo para ningún propósito ilegal o no autorizado.
+            </p>
+            <h4>2. Propiedad Intelectual</h4>
+            <p>
+              Todo el contenido del sitio, incluyendo textos, gráficos y
+              logotipos, es propiedad de CEMO y está protegido por leyes de
+              derechos de autor.
+            </p>
+            <h4>3. Enlaces a Terceros</h4>
+            <p>
+              Nuestro sitio puede contener enlaces a sitios de terceros. No
+              somos responsables del contenido o las prácticas de privacidad de
+              esos sitios.
+            </p>
+            <h4>4. Modificaciones</h4>
+            <p>
+              Nos reservamos el derecho de modificar estas condiciones de uso en
+              cualquier momento. Te recomendamos revisar periódicamente esta
+              sección.
+            </p>
+
+            <hr />
+
+            <h2>Términos y Condiciones</h2>
+            <p>
+              Estos términos y condiciones regulan el uso de nuestro sitio web y
+              los servicios ofrecidos. Al acceder a nuestro sitio, aceptas estos
+              términos.
+            </p>
+            <h4>1. Servicios Ofrecidos</h4>
+            <p>
+              CEMO ofrece servicios médicos y odontológicos. La disponibilidad
+              de estos servicios puede variar.
+            </p>
+            <h4>2. Responsabilidad</h4>
+            <p>
+              No somos responsables de daños o pérdidas derivados del uso de
+              nuestro sitio o de la información contenida en él.
+            </p>
+            <h4>3. Ley Aplicable</h4>
+            <p>
+              Estos términos se rigen por las leyes del país donde opera CEMO.
+              Cualquier disputa se resolverá en los tribunales competentes de
+              esa jurisdicción.
+            </p>
+            <h4>4. Contacto</h4>
+            <p>
+              Para consultas sobre estos términos, contáctanos a través de
+              nuestro formulario de contacto.
+            </p>
+            <input type="checkbox" id=" ">  Acepto las Políticas y Términos
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Aceptar
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Cerrar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contenedor para el footer -->
+    <div id="footer"></div>
+
+    <!-- Enlazar el script para cargar componentes -->
+    <script src="../js/loadComponents.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- <script src="../js/bootstrap.js"></script> -->
+    <script>
+      function mostrarUbicacion() {
+        const mapa = document.getElementById("mapa");
+        mapa.style.display = mapa.style.display === "none" ? "block" : "none";
+      }
+    </script>
+  </body>
+</html>

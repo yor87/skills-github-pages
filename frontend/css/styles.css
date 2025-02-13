@@ -1,0 +1,18 @@
+#hero{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    height: 70vh;
+    color: white;
+    background-image: linear-gradient(
+        0deg,
+        rgba(167, 165, 165, 0.377),
+        rgba(167, 165, 165, 0.377)
+    )
+    ,url("../images/port2.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}

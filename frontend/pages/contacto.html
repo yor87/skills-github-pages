@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacto CEMO</title>
+    <!-- <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    /> -->
+    <link rel="stylesheet" href="../css/contacto.css" />
+    <link rel="icon" href="../images/logo.ico" />
+    <link rel="stylesheet" href="../css/bootstrap.css" />
+    <style>
+      body {
+        font-family: "Times New Roman";
+        background-image: url("ns.jpg");
+      }
+    </style>
+    <script>
+      function validarSesion(event) {
+        const sesionIniciada = false;
+        const alert = document.getElementById("alerta-sesion");
+        const button = document.getElementById("agendar-cita");
+
+        if (!sesionIniciada) {
+          alert.style.display = "block";
+          alert.textContent =
+            "Debes iniciar sesión para poder agendar una cita.";
+          button.textContent = "Agendar Cita";
+          event.preventDefault();
+        } else {
+          alert.style.display = "none";
+          enviarCita();
+        }
+      }
+
+      function enviarCita() {
+        const success = Math.random() > 0.5;
+        const alert = document.getElementById("alerta-sesion");
+        const button = document.getElementById("agendar-cita");
+
+        if (success) {
+          alert.style.display = "block";
+          alert.textContent = "La cita fue enviada exitosamente.";
+          button.textContent = "Enviar cita";
+        } else {
+          alert.style.display = "block";
+          alert.textContent = "Error al enviar la cita. Inténtalo de nuevo.";
+          button.textContent = "Agendar Cita";
+        }
+      }
+
+      function actualizarHoras() {
+        const servicio = document.getElementById("servicio").value;
+        const horaSelect = document.getElementById("hora");
+        horaSelect.innerHTML = "";
+
+        const horas = {
+          odontologia: [
+            "7:00 AM",
+            "7:40 AM",
+            "8:20 AM",
+            "9:00 AM",
+            "9:40 AM",
+            "10:20 AM",
+          ],
+          ginecologia: [
+            "8:30 AM",
+            "9:00 AM",
+            "9:30 AM",
+            "10:00 AM",
+            "10:30 AM",
+            "11:00 AM",
+            "11:30 AM",
+            "12:00 PM",
+            "12:30 PM",
+            "1:00 PM",
+            "1:30 PM",
+          ],
+          laboratorio: [
+            "7:00 AM",
+            "7:30 AM",
+            "8:00 AM",
+            "8:30 AM",
+            "9:00 AM",
+            "9:30 AM",
+            "10:00 AM",
+            "10:30 AM",
+            "11:00 AM",
+            "11:30 AM",
+            "12:00 PM",
+            "12:30 PM",
+          ],
+          pediatria: [
+            "9:30 AM",
+            "10:00 AM",
+            "10:30 AM",
+            "11:00 AM",
+            "11:30 AM",
+            "12:00 PM",
+            "12:30 PM",
+            "1:00 PM",
+            "1:30 PM",
+            "2:00 PM",
+            "2:30 PM",
+            "3:00 PM",
+            "3:30 PM",
+            "4:00 PM",
+          ],
+          epidemiologia: [
+            "9:00 AM",
+            "9:30 AM",
+            "10:00 AM",
+            "10:30 AM",
+            "11:00 AM",
+            "11:30 AM",
+            "12:00 PM",
+            "12:30 PM",
+            "1:00 PM",
+            "1:30 PM",
+            "2:00 PM",
+            "2:30 PM",
+            "3:00 PM",
+            "3:30 PM",
+            "4:00 PM",
+          ],
+          medicina_general: [
+            "8:00 AM",
+            "8:30 AM",
+            "9:00 AM",
+            "9:30 AM",
+            "10:00 AM",
+            "10:30 AM",
+            "12:00 PM",
+          ],
+          traumatologia: [
+            "10:00 AM",
+            "10:30 AM",
+            "11:00 AM",
+            "11:30 AM",
+            "12:00 PM",
+            "12:30 PM",
+            "1:00 PM",
+          ],
+          fisiatria: ["9:00 AM", "9:30 AM", "10:00 AM", "10:30 AM", "12:00 PM"],
+          medicina_interna: [
+            "2:00 PM",
+            "2:30 PM",
+            "3:00 PM",
+            "3:30 PM",
+            "4:00 PM",
+            "4:30 PM",
+            "5:00 PM",
+          ],
+        };
+
+        horas[servicio].forEach((hora) => {
+          const option = document.createElement("option");
+          option.value = hora;
+          option.textContent = hora;
+          horaSelect.appendChild(option);
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <!-- Contenedor para el header -->
+    <div id="header"></div>
+
+    <div class="header">
+      <h1>Contacto CEMO</h1>
+      <div id="header"></div>
+    </div>
+
+    <div class="container my-5">
+      <div class="content-section">
+        <div
+          class="alert alert-warning"
+          id="alerta-sesion"
+          style="display: none"
+        >
+          Debes iniciar sesión para poder agendar una cita.
+        </div>
+        <form id="formulario" onsubmit="validarSesion(event)">
+          <label for="nombre">Nombre y Apellido:</label>
+          <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            class="form-control"
+            required
+          />
+
+          <label for="cedula">Cédula de Identificación:</label>
+          <input
+            type="text"
+            id="cedula"
+            name="cedula"
+            class="form-control"
+            required
+          />
+
+          <label for="telefono">Número Telefónico:</label>
+          <input
+            type="tel"
+            id="telefono"
+            name="telefono"
+            class="form-control"
+            required
+          />
+
+          <label for="servicio">Servicio:</label>
+          <select
+            id="servicio"
+            name="servicio"
+            class="form-control"
+            required
+            onchange="actualizarHoras()"
+          >
+            <option value="odontologia">Odontología</option>
+            <option value="ginecologia">Ginecología</option>
+            <option value="laboratorio">Laboratorio</option>
+            <option value="pediatria">Pediatría</option>
+            <option value="epidemiologia">Epidemiología</option>
+            <option value="medicina_general">Medicina General</option>
+            <option value="traumatologia">Traumatología</option>
+            <option value="fisiatria">Fisiatría</option>
+            <option value="medicina_interna">Medicina Interna</option>
+          </select>
+
+          <label for="dia">Día de la Semana:</label>
+          <select id="dia" name="dia" class="form-control" required>
+            <option value="lunes">Lunes</option>
+            <option value="martes">Martes</option>
+            <option value="miercoles">Miércoles</option>
+            <option value="jueves">Jueves</option>
+            <option value="viernes">Viernes</option>
+          </select>
+
+          <label for="hora">Hora:</label>
+          <select id="hora" name="hora" class="form-control" required></select>
+
+          <button type="submit" id="agendar-cita" class="btn btn-primary mt-3">
+            Agendar Cita
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Botón de FAQ -->
+    <button
+      class="btn btn-info faq-button"
+      data-toggle="modal"
+      data-target="#faqModal"
+    >
+      FAQ
+    </button>
+
+    <!-- Botón de Políticas y Términos -->
+    <button
+      class="btn btn-warning terms-button"
+      data-toggle="modal"
+      data-target="#termsModal"
+    >
+    POL&Iacute;TICAS Y T&Eacute;RMINOS
+    </button>
+
+    <!-- Modal de FAQ -->
+    <div
+      class="modal fade"
+      id="faqModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="faqModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="faqModalLabel">
+              Preguntas Frecuentes (FAQ)
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="accordion" id="faqAccordion">
+              <div class="card">
+                <div class="card-header" id="headingOne">
+                  <h5 class="mb-0">
+                    <button
+                      class="btn btn-link"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#collapseOne"
+                      aria-expanded="true"
+                      aria-controls="collapseOne"
+                    >
+                      ¿Qué servicios ofrece CEMO?
+                    </button>
+                  </h5>
+                </div>
+                <div
+                  id="collapseOne"
+                  class="collapse show"
+                  aria-labelledby="headingOne"
+                  data-parent="#faqAccordion"
+                >
+                  <div class="card-body">
+                    CEMO ofrece una variedad de servicios médicos, incluyendo
+                    odontología, ginecología, pediatría, medicina general, y
+                    más.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingTwo">
+                  <h5 class="mb-0">
+                    <button
+                      class="btn btn-link collapsed"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#collapseTwo"
+                      aria-expanded="false"
+                      aria-controls="collapseTwo"
+                    >
+                      ¿Cómo puedo agendar una cita?
+                    </button>
+                  </h5>
+                </div>
+                <div
+                  id="collapseTwo"
+                  class="collapse"
+                  aria-labelledby="headingTwo"
+                  data-parent="#faqAccordion"
+                >
+                  <div class="card-body">
+                    Puedes agendar una cita a través de nuestro formulario en
+                    línea o llamando a nuestras oficinas.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingThree">
+                  <h5 class="mb-0">
+                    <button
+                      class="btn btn-link collapsed"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#collapseThree"
+                      aria-expanded="false"
+                      aria-controls="collapseThree"
+                    >
+                      ¿Qué debo llevar a mi cita?
+                    </button>
+                  </h5>
+                </div>
+                <div
+                  id="collapseThree"
+                  class="collapse"
+                  aria-labelledby="headingThree"
+                  data-parent="#faqAccordion"
+                >
+                  <div class="card-body">
+                    Te recomendamos llevar tu cédula de identificación,
+                    cualquier documentación médica relevante y tus datos de
+                    contacto.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingFour">
+                  <h5 class="mb-0">
+                    <button
+                      class="btn btn-link collapsed"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#collapseFour"
+                      aria-expanded="false"
+                      aria-controls="collapseFour"
+                    >
+                      ¿Cuál es el horario de atención?
+                    </button>
+                  </h5>
+                </div>
+                <div
+                  id="collapseFour"
+                  class="collapse"
+                  aria-labelledby="headingFour"
+                  data-parent="#faqAccordion"
+                >
+                  <div class="card-body">
+                    Nuestro horario de atención es de lunes a viernes, de 8:00
+                    AM a 5:00 PM.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingFive">
+                  <h5 class="mb-0">
+                    <button
+                      class="btn btn-link collapsed"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#collapseFive"
+                      aria-expanded="false"
+                      aria-controls="collapseFive"
+                    >
+                      ¿Aceptan seguros médicos?
+                    </button>
+                  </h5>
+                </div>
+                <div
+                  id="collapseFive"
+                  class="collapse"
+                  aria-labelledby="headingFive"
+                  data-parent="#faqAccordion"
+                >
+                  <div class="card-body">
+                    Sí, aceptamos varios seguros médicos. Te recomendamos
+                    consultar con nuestras oficinas para más detalles.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Cerrar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal de Políticas y Términos -->
+    <div
+      class="modal fade"
+      id="termsModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="termsModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="termsModalLabel">
+              Pol&iacute;ticas de Privacidad, Condiciones y T&eacute;rminos
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h2>Pol&iacute;ticas de Privacidad</h2>
+            <p>
+              En CEMO, valoramos tu privacidad y nos comprometemos a proteger
+              tus datos personales. Esta política explica cómo recopilamos,
+              usamos y protegemos tu información.
+            </p>
+            <h4>1. Información que Recopilamos</h4>
+            <ul>
+              <li>
+                Información personal: nombre, dirección, correo electrónico,
+                número de teléfono.
+              </li>
+              <li>
+                Información de salud: datos relacionados con tu historial médico
+                y tratamientos.
+              </li>
+              <li>
+                Información de uso: datos sobre cómo utilizas nuestro sitio web.
+              </li>
+            </ul>
+            <h4>2. Uso de la Información</h4>
+            <p>Usamos tu información para:</p>
+            <ul>
+              <li>Proporcionar servicios médicos y gestionar citas.</li>
+              <li>Mejorar nuestro sitio web y servicios.</li>
+              <li>Enviar comunicaciones relevantes y actualizaciones.</li>
+            </ul>
+            <h4>3. Protección de Datos</h4>
+            <p>
+              Implementamos medidas de seguridad adecuadas para proteger tu
+              información personal contra el acceso no autorizado, la
+              alteración, divulgación o destrucción.
+            </p>
+            <h4>4. Cambios en la Pol&iacute;tica</h4>
+            <p>
+              Nos reservamos el derecho de actualizar esta política de
+              privacidad. Te notificaremos sobre cambios significativos a través
+              de nuestro sitio web.
+            </p>
+            <h4>5. Contacto</h4>
+            <p>
+              Si tienes preguntas sobre esta política, contáctanos a través de
+              nuestro formulario de contacto.
+            </p>
+
+            <hr />
+
+            <h2>Condiciones de Uso</h2>
+            <p>
+              Al utilizar nuestro sitio web, aceptas cumplir con estas
+              condiciones de uso. Si no estás de acuerdo, por favor no utilices
+              nuestro sitio.
+            </p>
+            <h4>1. Uso del Sitio</h4>
+            <p>
+              Este sitio web está destinado a uso personal y no comercial. No
+              puedes utilizarlo para ningún propósito ilegal o no autorizado.
+            </p>
+            <h4>2. Propiedad Intelectual</h4>
+            <p>
+              Todo el contenido del sitio, incluyendo textos, gráficos y
+              logotipos, es propiedad de CEMO y está protegido por leyes de
+              derechos de autor.
+            </p>
+            <h4>3. Enlaces a Terceros</h4>
+            <p>
+              Nuestro sitio puede contener enlaces a sitios de terceros. No
+              somos responsables del contenido o las prácticas de privacidad de
+              esos sitios.
+            </p>
+            <h4>4. Modificaciones</h4>
+            <p>
+              Nos reservamos el derecho de modificar estas condiciones de uso en
+              cualquier momento. Te recomendamos revisar periódicamente esta
+              sección.
+            </p>
+
+            <hr />
+
+            <h2>T&eacute;rminos y Condiciones</h2>
+            <p>
+              Estos términos y condiciones regulan el uso de nuestro sitio web y
+              los servicios ofrecidos. Al acceder a nuestro sitio, aceptas estos
+              términos.
+            </p>
+            <h4>1. Servicios Ofrecidos</h4>
+            <p>
+              CEMO ofrece servicios médicos y odontológicos. La disponibilidad
+              de estos servicios puede variar.
+            </p>
+            <h4>2. Responsabilidad</h4>
+            <p>
+              No somos responsables de daños o pérdidas derivados del uso de
+              nuestro sitio o de la información contenida en él.
+            </p>
+            <h4>3. Ley Aplicable</h4>
+            <p>
+              Estos términos se rigen por las leyes del país donde opera CEMO.
+              Cualquier disputa se resolverá en los tribunales competentes de
+              esa jurisdicción.
+            </p>
+            <h4>4. Contacto</h4>
+            <p>
+              Para consultas sobre estos términos, contáctanos a través de
+              nuestro formulario de contacto.
+            </p>
+            <input type="checkbox" id=" ">  Acepto las Políticas y Términos
+          </div>
+          <div class="modal-footer">
+            <button
+            type="button"
+            class="btn btn-secondary"
+            data-dismiss="modal"
+          >
+            Aceptar
+          </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Cerrar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contenedor para el footer -->
+    <div id="footer"></div>
+
+    <script src="../js/loadComponents.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

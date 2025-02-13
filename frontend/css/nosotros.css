@@ -1,0 +1,33 @@
+
+
+.header {  
+    text-align: center;  
+    margin: 40px 0;  
+    color: white; 
+}
+
+.content-section {
+    background-color: rgb(230, 227, 227);
+    border: 1px solid #27365b; 
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 2px 10px rgba(45, 62, 99, 0.1);
+    height: auto; 
+    transition: transform 0.3s;
+}
+
+.content-section:hover {
+    transform: scale(1.02); 
+}
+
+.service-icon {
+    width: 80px;
+    height: 80px;
+}
+
+footer {
+    background-color: #f1f1f1;
+    padding: 10px 0;
+    margin-top: 40px; 
+}
